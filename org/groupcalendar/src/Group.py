@@ -1,6 +1,6 @@
 # Group
 # Stores a group of members who need to find a common time when they can meet.
-from Member import Member
+from groupcalendar.src.Member import Member
 from collections import defaultdict
 
 class Group:
@@ -11,20 +11,19 @@ class Group:
     self.id = 0
     self.members = defaultdict(list)
     for member in members:
-      self.members[member.getName()].append(member)
+      self.members[member.name] += [member]
 
   # Add a new member
   # member - new member
-  # return - integer providing the member with an id.
-  def addMember(self, member: Member) -> int:
-    self.members.append(member)
+  def addMember(self, member: Member) -> None:
+    self.members[member.name] += [member]
   
   # Get a member from the group
   # name - member's name
-  def getMember(self, name:str) -> Member:
+  def getMemberByName(self, name:str) -> Member:
     return self.members[name]
   
   # Remove a member from the group
   # name - member's name
-  def removeMember(self, name:str) -> Member:
-    return self.members.pop(name)
+  def removeMember(self, member: Member) -> None:
+    self.members.pop(member.name)
