@@ -7,6 +7,7 @@ class Member:
   # Create a new member
   # name - member's name
   # calendar - member's weekly availability
-  def __init__(self, name: str = "", calendar: Calendar = None) -> None:
+  def __init__(self, id: str= "", name: str = "", calendar: Calendar = None) -> None:
+    self.id = id
     self.name = name
     self.calendar = calendar

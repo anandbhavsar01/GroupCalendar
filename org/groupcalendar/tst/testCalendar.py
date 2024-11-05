@@ -1,6 +1,6 @@
 import unittest
-from groupcalendar.src.Calendar import Calendar
-from groupcalendar.src.DayEnum import Day
+from groupcalendar.src.model.Calendar import Calendar
+from groupcalendar.src.model.DayEnum import Day
 
 class TestCalendar(unittest.TestCase):
   def setUp(self):

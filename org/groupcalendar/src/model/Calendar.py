@@ -3,7 +3,7 @@
 # The group merges these calendars to determine time intervals where all the 
 # members are available.
 
-from groupcalendar.src.DayEnum import Day
+from groupcalendar.src.model.DayEnum import Day
 
 class Calendar:
   
