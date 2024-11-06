@@ -3,6 +3,7 @@
 # The group merges these calendars to determine time intervals where all the 
 # members are available.
 
+from collections import defaultdict
 from groupcalendar.src.model.DayEnum import Day
 
 class Calendar:
@@ -13,9 +14,7 @@ class Calendar:
   # For now, assume that the hours specified apply to all the days selected
   # Later on, the user can modify specific days of the week with specific time ranges
   def __init__(self, days: list[Day] = [], hours: list[int] = []) -> None:
-    self.calendar = {}
-    self.days = days
-    self.hours = hours
+    self.calendar: defaultdict[Day, list[int]] = defaultdict(list)
 
     for day in days:
       self.calendar[day] = hours
@@ -25,6 +24,10 @@ class Calendar:
   # hours - Which hours of the day they're available
   def addDay(self, day: Day, hours: list[int] = []) -> None:
     self.calendar[day] = hours
+
+
+  def getDays(self) -> list[Day]:
+    return list(self.calendar.keys())
 
 
   # Update hours for each day the member is available

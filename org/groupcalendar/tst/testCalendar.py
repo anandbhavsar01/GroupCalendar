@@ -9,8 +9,6 @@ class TestCalendar(unittest.TestCase):
     self.oneDayCalendar.addDay(Day.WED, [0,1,2,3,4])
 
   def test_createCalendar(self):
-    self.assertEqual(self.newCalendar.days, [])
-    self.assertEqual(self.newCalendar.hours, [])
     self.assertEqual(self.newCalendar.calendar, {})
 
   def test_Calendar_addDay(self):
